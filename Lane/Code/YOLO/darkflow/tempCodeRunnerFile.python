@@ -1,0 +1,24 @@
+from twilio.rest import Client
+
+# Your Twilio Account SID and Authentication Token
+account_sid = "ACca7e82b5595ab196ea44d036abc42052"
+auth_token = "5ac848a61859b2f58fc656aa2d6aeff3"
+
+# Create a Twilio client
+client = Client(account_sid, auth_token)
+
+# Your phone number and the recipient's phone number
+my_phone_number = "+919265730427"  # Replace with your phone number
+recipient_phone_number = "+919998832394"  # Replace with the recipient's phone number
+
+# The message you want to send
+message = "Hello World"
+
+# Send the SMS
+sms = client.messages.create(
+    body=message,
+    from_=my_phone_number,
+    to=recipient_phone_number
+)
+
+print(f"SMS sent with SID: {sms.sid}")
